@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection;
-
 
 use App\Http\Requests;
 
-use App\User;
+use App\Guest;
 
-class UserController extends Controller
+class GuestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,22 +18,16 @@ class UserController extends Controller
      */
     public function index()
     {
-      // $users = DB::table('users')->get();
-      // $users = DB::table('users')->where('roles_id', '2')->get();
+
+      // $guests = DB::table('users')->where('roles_id', '2')->orderBy('id')->chunk(10, function($guests) {
+      //     foreach ($guests as $guest) {
+      //         echo $guest->firstname . $guest->lastname;
+      //     }
       //
-      // foreach ($users as $user) {
-      //   echo $user->firstname;
-      // }
+      //     return false;
+      // });
 
-      $users = DB::table('users')->where('roles_id', '2')->orderBy('id')->chunk(10, function($users) {
-          foreach ($users as $user) {
-              echo $user->firstname . $user->lastname;
-          }
-
-          return false;
-      });
-
-      return view('admin.users', ['users' => $users]);
+      return view('admin.guests');
     }
 
     /**
@@ -45,8 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        // return 'createuser!';
-        // return view('admin.createuser');
+        //
     }
 
     /**
@@ -55,13 +46,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-     public function store(Request $request)
-      {
-          // User::create($request->all());
-          // return 'User added!';
-          // return $request->all();
-          //  $name = $request->name;
-      }
+    public function store(Request $request)
+    {
+        //
+    }
 
     /**
      * Display the specified resource.

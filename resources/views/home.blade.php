@@ -9,6 +9,21 @@
 
                 <div class="panel-body">
                     You are logged in!
+                    <ul>
+                      <li>Guests</li>
+                        <ul>
+                          <li>Add New Guests</li>
+                          <li>
+                            <a href="{{ url('/guests') }}">View Guests</a>
+                          </li>
+                        </ul>
+                      <li>Menu</li>
+                        <ul>
+                          <li>Add New Menu</li>
+                          <li>Weekly Menu</li>
+                        </ul>
+                      <li></li>
+                    </ul>
                 </div>
             </div>
         </div>

@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use View;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+      // List guests
+      $guests = DB::table('users')->where('roles_id', '2')->get();
+      View::share('guests', $guests);
+
     }
 
     /**
