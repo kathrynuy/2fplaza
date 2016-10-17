@@ -16,10 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-      // List guests
-      // $guests = '';
-      // View::share('guests', $guests);
-
+      //
     }
 
     /**
