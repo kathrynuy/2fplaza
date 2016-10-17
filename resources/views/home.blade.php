@@ -12,7 +12,9 @@
                     <ul>
                       <li>Guests</li>
                         <ul>
-                          <li>Add New Guests</li>
+                          <li>
+                            <a href="{{ url('/register') }}">Add New Guests</a>
+                          </li>
                           <li>
                             <a href="{{ url('/guests') }}">View Guests</a>
                           </li>

@@ -17,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
       // List guests
-      $guests = DB::table('users')->where('roles_id', '2')->get();
-      View::share('guests', $guests);
+      // $guests = '';
+      // View::share('guests', $guests);
 
     }
 

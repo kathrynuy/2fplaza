@@ -19,15 +19,9 @@ class GuestController extends Controller
     public function index()
     {
 
-      // $guests = DB::table('users')->where('roles_id', '2')->orderBy('id')->chunk(10, function($guests) {
-      //     foreach ($guests as $guest) {
-      //         echo $guest->firstname . $guest->lastname;
-      //     }
-      //
-      //     return false;
-      // });
+      $guests = DB::table('users')->where('roles_id', '2')->get();
 
-      return view('admin.guests');
+      return view('admin.guests', ['guests' => $guests]);
     }
 
     /**
