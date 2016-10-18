@@ -8,7 +8,12 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+                    <ul>
+                      <li><a href="{{ url('/register') }}">Add New Guest</a></li>
+                      <li>View Guests</li>
+                      <li>Add New Menu</li>
+                      <li>View Menu</li>
+                    </ul>
                 </div>
             </div>
         </div>
