@@ -17,6 +17,7 @@ class CreateMenuTable extends Migration
           $table->increments('id');
           $table->integer('menu_cat_id')->unsigned();
           $table->string('menuName');
+          $table->string('menuDesc');
           $table->float('menuPrice');
           $table->dateTime('menuDate');
           $table->timestamps();

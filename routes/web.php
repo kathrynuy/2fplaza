@@ -14,13 +14,15 @@
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/regitser', function () {
-    return view('admin.register');
-});
 
 Route::resource('users', 'UserController');
 Route::resource('/guests', 'GuestController');
+Route::resource('/menu','MenuController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+// Route::group(['middleware' => ['web']], function() {
+
+// });
