@@ -16,13 +16,10 @@ Route::get('/', function () {
 });
 
 Route::resource('users', 'UserController');
-Route::resource('/guests', 'GuestController');
-Route::resource('/menu','MenuController');
+// Route::resource('/guests', 'GuestController');
+Route::resource('/menu', 'MenuController');
+Route::resource('/admin', 'AdminController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-
-// Route::group(['middleware' => ['web']], function() {
-
-// });

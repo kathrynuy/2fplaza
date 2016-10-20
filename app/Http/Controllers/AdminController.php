@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+use App\User;
+use Validator;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
 use App\Http\Requests;
 
-use App\Guest;
+use App\Admin;
 
-class GuestController extends Controller
+class AdminController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -18,10 +24,9 @@ class GuestController extends Controller
      */
     public function index()
     {
+      $users = DB::table('users')->where('roles_id', '2')->get();
 
-      // $guests = DB::table('users')->where('roles_id', '2')->get();
-      //
-      // return view('admin.guests', ['guests' => $guests]);
+      return view('admin.index', ['users' => $users]);
     }
 
     /**
@@ -31,7 +36,7 @@ class GuestController extends Controller
      */
     public function create()
     {
-        // return view('admin.addguest');
+        return view('admin.create');
     }
 
     /**
@@ -42,7 +47,21 @@ class GuestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // validation
+       $this->validate($request,[
+         'firstname' => 'required|max:255',
+         'lastname' => 'required|max:255',
+         'email' => 'required|email|max:255|unique:users',
+         'password' => 'required|min:6|confirmed',
+      ]);
+       // create new data
+       $user = new user;
+       $user->firstname = $request->firstname;
+       $user->lastname = $request->lastname;
+       $user->email = $request->email;
+       $user->password = $request->password;
+       $user->save();
+       return redirect()->route('admin.index')->with('alert-success','Guest Data Saved!');
     }
 
     /**

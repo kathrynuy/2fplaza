@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Collection;
-
 
 use App\Http\Requests;
 
@@ -20,22 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-      // $users = DB::table('users')->get();
-      // $users = DB::table('users')->where('roles_id', '2')->get();
-      //
-      // foreach ($users as $user) {
-      //   echo $user->firstname;
-      // }
-
-      $users = DB::table('users')->where('roles_id', '2')->orderBy('id')->chunk(10, function($users) {
-          foreach ($users as $user) {
-              echo $user->firstname . $user->lastname;
-          }
-
-          return false;
-      });
-
-      return view('admin.users', ['users' => $users]);
+      // return view('admin.users.index', compact('users'));
+      // return 'users';
     }
 
     /**
