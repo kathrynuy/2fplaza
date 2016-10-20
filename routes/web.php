@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::resource('users', 'UserController');
+// Route::resource('/guests', 'GuestController');
+Route::resource('/menu', 'MenuController');
+Route::resource('/admin', 'AdminController');
 
 Auth::routes();
 

@@ -1,0 +1,61 @@
+/* navbar css */
+nav#nav_app{
+  background: #23c7ab;
+  margin-bottom: 0px;
+}
+
+a.navbar-brand {
+    color: #fff !important;
+}
+
+ul.nav.navbar-nav.navbar-right li.dropdown a {
+    color: #fff;
+}
+
+/* side panel css */
+.admin_menu {
+    float: left;
+    background: #f6f6f6;
+    height: 100%;
+    width: 15%;
+    position: fixed;
+    padding: 1% 0%;
+    border-right: 1px solid #ddd;
+}
+
+ul.admin_ul {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+}
+
+li.admin_ul {
+    padding: 5% 0% 5% 10%;
+}
+
+li.admin_ul:hover {
+    background: #d2d2d2;
+}
+
+li.admin_ul a {
+    text-decoration: none;
+    color: #5a5a5a;
+}
+
+span.icns {
+    margin-right: 5%;
+}
+
+
+/* container css */
+
+.container.login {
+    margin-top: 10%;
+}
+
+.dashboard {
+    float: right;
+    width: 85%;
+    padding: 1% 2%;
+    /*position: absolute;*/
+}
