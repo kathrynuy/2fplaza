@@ -14,15 +14,15 @@ class CreateMenuTable extends Migration
     public function up()
     {
       Schema::create('menu', function (Blueprint $table) {
-       $table->increments('id');
-       $table->integer('menu_cat_id')->unsigned();
-       $table->string('menuName');
-       $table->string('menuDesc');
-       $table->float('menuPrice');
-       $table->dateTime('menuDate');
-       $table->timestamps();
-       $table->engine = 'InnoDB';
-     });
+          $table->increments('id');
+          $table->integer('menu_cat_id')->unsigned();
+          $table->string('menuName');
+          $table->string('menuDesc');
+          $table->float('menuPrice');
+          $table->dateTime('menuDate');
+          $table->timestamps();
+          $table->engine = 'InnoDB';
+      });
     }
 
     /**

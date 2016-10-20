@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "4cb3a57f523d50175ae23299f71bf19c",
+=======
+    "hash": "ed9df8b872992035f068a7fe461a635a",
+>>>>>>> 5c5794c4135e853166cb6b02e3e7542969d61158
     "content-hash": "76036da3b5b55b91dbe1e1affa01bf9e",
     "packages": [
         {
@@ -308,6 +312,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v5.3.19",
             "source": {
                 "type": "git",
@@ -318,6 +323,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/f1a5bb417b3e0d1949fe84617eacd1a14d75d7f1",
                 "reference": "f1a5bb417b3e0d1949fe84617eacd1a14d75d7f1",
+=======
+            "version": "v5.3.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "9bee167d173857c25966c19afdaa66f127ca6784"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9bee167d173857c25966c19afdaa66f127ca6784",
+                "reference": "9bee167d173857c25966c19afdaa66f127ca6784",
+>>>>>>> 5c5794c4135e853166cb6b02e3e7542969d61158
                 "shasum": ""
             },
             "require": {
@@ -399,7 +416,11 @@
                 "pusher/pusher-php-server": "Required to use the Pusher broadcast driver (~2.0).",
                 "symfony/css-selector": "Required to use some of the crawler integration testing tools (3.1.*).",
                 "symfony/dom-crawler": "Required to use most of the crawler integration testing tools (3.1.*).",
+<<<<<<< HEAD
                 "symfony/psr-http-message-bridge": "Required to use psr7 bridging features (0.2.*)."
+=======
+                "symfony/psr-http-message-bridge": "Required to psr7 bridging features (0.2.*)."
+>>>>>>> 5c5794c4135e853166cb6b02e3e7542969d61158
             },
             "type": "library",
             "extra": {
@@ -432,6 +453,7 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
             "time": "2016-10-17 19:35:14"
         },
         {
@@ -450,6 +472,26 @@
             },
             "require": {
                 "php": ">=5.6.0"
+=======
+            "time": "2016-10-08 01:51:20"
+        },
+        {
+            "name": "league/flysystem",
+            "version": "1.0.28",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "a9663643ff2d16d7f66ed1e0d3212c5491bc9044"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/a9663643ff2d16d7f66ed1e0d3212c5491bc9044",
+                "reference": "a9663643ff2d16d7f66ed1e0d3212c5491bc9044",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+>>>>>>> 5c5794c4135e853166cb6b02e3e7542969d61158
             },
             "conflict": {
                 "league/flysystem-sftp": "<1.0.6"
@@ -515,7 +557,11 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
             "time": "2016-10-17 23:14:19"
+=======
+            "time": "2016-10-07 12:20:37"
+>>>>>>> 5c5794c4135e853166cb6b02e3e7542969d61158
         },
         {
             "name": "monolog/monolog",
@@ -739,6 +785,7 @@
         },
         {
             "name": "paragonie/random_compat",
+<<<<<<< HEAD
             "version": "v2.0.3",
             "source": {
                 "type": "git",
@@ -749,6 +796,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c0125896dbb151380ab47e96c621741e79623beb",
                 "reference": "c0125896dbb151380ab47e96c621741e79623beb",
+=======
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/paragonie/random_compat.git",
+                "reference": "088c04e2f261c33bed6ca5245491cfca69195ccf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/088c04e2f261c33bed6ca5245491cfca69195ccf",
+                "reference": "088c04e2f261c33bed6ca5245491cfca69195ccf",
+>>>>>>> 5c5794c4135e853166cb6b02e3e7542969d61158
                 "shasum": ""
             },
             "require": {
@@ -783,7 +842,11 @@
                 "pseudorandom",
                 "random"
             ],
+<<<<<<< HEAD
             "time": "2016-10-17 15:23:22"
+=======
+            "time": "2016-04-03 06:00:07"
+>>>>>>> 5c5794c4135e853166cb6b02e3e7542969d61158
         },
         {
             "name": "psr/log",

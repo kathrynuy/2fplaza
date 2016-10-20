@@ -14,10 +14,10 @@ class CreateMenuCatTable extends Migration
     public function up()
     {
       Schema::create('menu_cat', function (Blueprint $table) {
-        $table->increments('menu_cat_id')->unsigned();
-        $table->string('menuCatName');
-        $table->engine = 'InnoDB';
-    });
+          $table->increments('menu_cat_id')->unsigned();
+          $table->string('menuCatName');
+          $table->engine = 'InnoDB';
+      });
     }
 
     /**

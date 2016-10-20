@@ -14,7 +14,7 @@ class RolesForeignKey extends Migration
     public function up()
     {
       Schema::table('users', function (Blueprint $table) {
-      $table->foreign('roles_id')->references('roles_id')->on('roles');
+        $table->foreign('roles_id')->references('roles_id')->on('roles');
 
       });
     }

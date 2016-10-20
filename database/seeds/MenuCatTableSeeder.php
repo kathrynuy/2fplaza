@@ -12,10 +12,11 @@ class MenuCatTableSeeder extends Seeder
     public function run()
     {
       DB::table('menu_cat')->insert([
-           'menuCatName' => 'breakfast',
-       ]);
-       DB::table('menu_cat')->insert([
-           'menuCatName' => 'dinner',
-       ]);
+          'menuCatName' => 'breakfast',
+      ]);
+
+      DB::table('menu_cat')->insert([
+          'menuCatName' => 'dinner',
+      ]);
     }
 }
