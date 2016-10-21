@@ -34,12 +34,14 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
+
+        $('.dropdown-toggle').dropdown();
     </script>
 </head>
 <body>
     <div id="app">
       <header>
-        <nav class="navbar navbar-default navbar-static-top" id="nav_app">
+        <nav class="navbar navbar-default navbar-fixed-top" id="nav_app">
           <div class="container-fluid">
             <div class="navbar-header">
 
@@ -66,16 +68,13 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
+
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->firstname}} <span class="caret"></span>
+                                <a id ="dLabel" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Hi!&nbsp;{{ Auth::user()->firstname}} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu" aria-labelledby="dLabel">
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -89,14 +88,14 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endif
+
                     </ul>
                 </div>
             </div>
         </nav>
       </header>
 
-        <div class="container" style="width:100%; padding-left:0px;">
+        <div class="container" style="width:100%; padding-left:0px; padding-top:3.5%;">
 
 
             <div class="admin_menu">

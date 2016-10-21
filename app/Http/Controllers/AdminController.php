@@ -49,9 +49,9 @@ class AdminController extends Controller
     {
       // validation
        $this->validate($request,[
-         'firstname' => 'required|max:255',
-         'lastname' => 'required|max:255',
-         'email' => 'required|email|max:255|unique:users',
+         'firstname' => 'required|min:2|max:255',
+         'lastname' => 'required|min:2|max:255',
+         'email' => 'required|email|min:6|max:255|unique:users',
          'password' => 'required|min:6|confirmed',
       ]);
        // create new data
@@ -83,7 +83,9 @@ class AdminController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = User::findOrFail($id);
+     // return to the edit views
+     return view('admin.edit',compact('user'));
     }
 
     /**
@@ -95,7 +97,24 @@ class AdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // validation
+       $this->validate($request,[
+         'firstname'=> 'required',
+         'lastname' => 'required',
+         'roomNum' => 'required',
+         'checkIn' => 'required',
+         'checkOut' => 'required',
+     ]);
+
+       $user = User::findOrFail($id);
+       $user->firstname = $request->firstname;
+       $user->lastname = $request->lastname;
+       $user->roomNum = $request->roomNum;
+       $user->checkIn = $request->checkIn;
+       $user->checkOut = $request->checkOut;
+       $user->save();
+
+       return redirect()->route('admin.index')->with('alert-success','User Data Saved!');
     }
 
     /**
@@ -106,6 +125,9 @@ class AdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+      // delete data
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->route('admin.index')->with('alert-success','User Data Saved!');
     }
 }

@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('lastname');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('roomNum')->nullable();
+            $table->date('checkIn')->nullable();
+            $table->date('checkOut')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->engine = 'InnoDB';

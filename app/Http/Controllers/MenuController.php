@@ -41,8 +41,8 @@ class MenuController extends Controller
     {
       // validation
        $this->validate($request,[
-       'menuName'=> 'required',
-       'menuDesc' => 'required',
+       'menuName'=> 'required|min:6',
+       'menuDesc' => 'required|min:6',
        'menuPrice' => 'required',
        'menuDate' => 'required',
        'menu_cat_id' => 'required',
@@ -96,11 +96,17 @@ class MenuController extends Controller
      $this->validate($request,[
        'menuName'=> 'required',
        'menuDesc' => 'required',
+       'menuPrice' => 'required',
+       'menuDate' => 'required',
+       'menu_cat_id' => 'required',
    ]);
 
      $menu = Menu::findOrFail($id);
      $menu->menuName = $request->menuName;
      $menu->menuDesc = $request->menuDesc;
+     $menu->menuPrice = $request->menuPrice;
+     $menu->menuDate = $request->menuDate;
+     $menu->menu_cat_id = $request->menu_cat_id;
      $menu->save();
 
      return redirect()->route('menu.index')->with('alert-success','Menu DataSaved!');

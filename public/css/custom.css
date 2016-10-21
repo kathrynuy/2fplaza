@@ -4,6 +4,11 @@ nav#nav_app{
   margin-bottom: 0px;
 }
 
+.navbar-default {
+    background-color: #23c7ab !important;
+    border-color: #23c7ab !important;
+}
+
 a.navbar-brand {
     color: #fff !important;
 }
