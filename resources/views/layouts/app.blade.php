@@ -70,7 +70,7 @@
                         <!-- Authentication Links -->
 
                             <li class="dropdown">
-                                <a id ="dLabel" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <a class="dmenu" id ="dLabel" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     Hi!&nbsp;{{ Auth::user()->firstname}} <span class="caret"></span>
                                 </a>
 

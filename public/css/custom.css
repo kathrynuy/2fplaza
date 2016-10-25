@@ -15,8 +15,9 @@ a.navbar-brand {
 
 ul.nav.navbar-nav.navbar-right a {
     color: #fff;
-    background: #23c7ab;
+    background: #07bd9e;
 }
+
 
 /* side panel css */
 .admin_menu {
@@ -53,13 +54,20 @@ span.icns {
 }
 
 /*dropdown css */
-li.dropdown:hover {
-  background: #26dabb;
-}
 
 ul.dropdown-menu {
-  background: #23c7ab;
+  background: #07bd9e;
 }
+
+a#dLabel.dmenu  {
+  background-color: #23c7ab;
+  color: #fff;
+}
+
+a#dLabel.dmenu:hover  {
+  background-color: #07bd9e;
+}
+
 
 
 /* container css */
