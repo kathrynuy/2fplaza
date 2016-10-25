@@ -64,3 +64,20 @@ span.icns {
     padding: 1% 2%;
     /*position: absolute;*/
 }
+
+
+/*calendar container css*/
+div#calendar{
+  overflow-x: scroll;
+  width: 100%;
+  height: 100vh;
+}
+
+td#fname, td#lname, td#roomnum, td#no{
+    padding-top: 1.5%;
+    white-space: nowrap;
+}
+
+td.tbl_th{
+  white-space: nowrap;
+}
