@@ -2,7 +2,7 @@
   @section('content')
   <div class="row">
     <div class="col-md-12">
-      <h1>Create Menu Data</h1>
+      <h1>Create Menu Details</h1>
     </div>
   </div>
   <div class="row">
@@ -26,9 +26,16 @@
           {!! $errors->first('menuDate','<p class="help-block">:message</p>') !!}
         </div>
         <div class="form-group{{ ($errors->has('menu_cat_id')) ? $errors->first('menuName') : '' }}">
-          <input type="radio" name="menu_cat_id" value="1">Breakfast<br>
-          <input type="radio" name="menu_cat_id" value="2">Dinner<br>
-          {!! $errors->first('menuDesc','<p class="help-block">:message</p>') !!}
+          <label>
+            <input type="radio" name="menu_cat_id" value="1">Breakfast
+          </label>
+          <label>
+            <input type="radio" name="menu_cat_id" value="2">Dinner
+          </label>
+          <label>
+            <input type="radio" name="menu_cat_id" value="3">Others
+          </label>
+          {!! $errors->first('menu_cat_id','<p class="help-block">:message</p>') !!}
         </div>
         <div class="form-group">
           <input type="submit" class="btn btn-primary" value="save">

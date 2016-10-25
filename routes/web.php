@@ -15,10 +15,19 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::resource('users', 'UserController');
-// Route::resource('/guests', 'GuestController');
-Route::resource('/menu', 'MenuController');
-Route::resource('/admin', 'AdminController');
+
+Route::resource('admin', 'AdminController');
+// Route::get('admin', 'AdminController@index');
+Route::resource('menu', 'MenuController');
+Route::resource('meal-order', 'MealOrderController');
+
+// Redirect users to log in page when trying to access the following pages if not logged in
+// Route::group(['middleware' => 'authenticated'], function(){
+	// Route::get('admin', 'AdminController@index');
+//   Route::get('menu', 'MenuController@index');
+//   Route::get('meal-order', 'MealOrderController@index');
+// });
+
 
 Auth::routes();
 

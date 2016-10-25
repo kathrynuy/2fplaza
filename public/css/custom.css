@@ -4,12 +4,18 @@ nav#nav_app{
   margin-bottom: 0px;
 }
 
+.navbar-default {
+    background-color: #23c7ab !important;
+    border-color: #23c7ab !important;
+}
+
 a.navbar-brand {
     color: #fff !important;
 }
 
-ul.nav.navbar-nav.navbar-right li.dropdown a {
+ul.nav.navbar-nav.navbar-right a {
     color: #fff;
+    background: #23c7ab;
 }
 
 /* side panel css */
@@ -46,6 +52,15 @@ span.icns {
     margin-right: 5%;
 }
 
+/*dropdown css */
+li.dropdown:hover {
+  background: #26dabb;
+}
+
+ul.dropdown-menu {
+  background: #23c7ab;
+}
+
 
 /* container css */
 
@@ -53,9 +68,28 @@ span.icns {
     margin-top: 10%;
 }
 
+
+
 .dashboard {
     float: right;
     width: 85%;
     padding: 1% 2%;
     /*position: absolute;*/
+}
+
+
+/*calendar container css*/
+div#calendar{
+  overflow-x: scroll;
+  width: 100%;
+  height: 100vh;
+}
+
+td#fname, td#lname, td#roomnum, td#no{
+    padding-top: 1.5%;
+    white-space: nowrap;
+}
+
+td.tbl_th{
+  white-space: nowrap;
 }

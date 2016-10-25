@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function getFirstnameAttribute($value)
     {
-      return "Hi! " . $value;
+      return $value;
     }
 
 
