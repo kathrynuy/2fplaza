@@ -61,7 +61,8 @@ class AdminController extends Controller
        $user->email = $request->email;
        $user->password = $request->password;
        $user->save();
-       return redirect()->route('admin.index')->with('alert-success','Guest Data Saved!');
+      //  return redirect()->route('admin.index')->with('alert-success','Guest Data Saved!');
+       return redirect()->route('admin.index')->with('status', 'Guest Data Saved!');
     }
 
     /**
@@ -72,7 +73,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $request->session()->put('key', 'value');
     }
 
     /**
