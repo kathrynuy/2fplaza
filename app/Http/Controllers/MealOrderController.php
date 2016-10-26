@@ -33,7 +33,7 @@ class MealOrderController extends Controller
       $daysInMonth = cal_days_in_month(0, $month, $year);
 
       $timestamp = strtotime('next Sunday');
-      $weekDays = array([]);
+      $weekDays = [];
 
       for ($i = 0; $i < 31; $i++){
         $weekDays[] = strftime('%a', $timestamp);

@@ -14,6 +14,17 @@
         </tr>
 
         <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+            @foreach($weekDays as $key => $weekDay)
+              <td class="text-center">{{ $weekDay }}</td>
+            @endforeach
+        </tr>
+
+        <tr>
           <td class="tbl_th">No.</td>
           <td class="tbl_th">First Name</td>
           <td class="tbl_th">Last Name</td>
@@ -31,6 +42,7 @@
         </tr>
         </thead>
         <tbody>
+
 
           <?php $no=1; ?>
           @foreach($users as $user)
