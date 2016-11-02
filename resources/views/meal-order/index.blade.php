@@ -7,6 +7,14 @@
   </div>
 
   <div class="row" id="calendar">
+
+  $month = date('m', $date);
+  @for ($month; $month<=12; $month++) {
+
+    $month = strftime('%B', $firstDay);
+    {{ $month }}
+  }
+  @endfor
     <table class='table table-bordered' style="width: 100%;">
       <thead>
         <tr style="background: #d9edf7;">
@@ -37,7 +45,15 @@
             @else
               <td id= {{ $i }}> {{ $i }} </td>
             @endif
+
+      {{--  @if(($i + $blank) % 7 == 0)
+      				</tr><tr>
+      			@endif --}}
           @endfor
+
+    {{-- @for($i = 0; ($i + $blank + $daysInMonth) % 7 != 0; $i++)
+      			<td></td>
+      		@endfor --}}
 
         </tr>
         </thead>

@@ -12,14 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    if( Auth::guest() ){
+        return view('auth.login');
+    }else{
+        return view('/home');
+    }
 });
 
+Route::get('blade', function () {
+    return view('child');
+});
 
-// Route::resource('admin', 'AdminController');
-// Route::get('admin', 'AdminController@index');
-// Route::resource('menu', 'MenuController');
-// Route::resource('meal-order', 'MealOrderController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
 
 // Redirect users to log in page when trying to access the following pages if not logged in
 Route::group(['middleware' => 'authenticated'], function(){
@@ -28,8 +34,3 @@ Route::group(['middleware' => 'authenticated'], function(){
   Route::resource('menu', 'MenuController');
   Route::resource('meal-order', 'MealOrderController');
 });
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');

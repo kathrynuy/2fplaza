@@ -29,6 +29,7 @@ class MealOrderController extends Controller
       $year = date('Y', $date);
       $firstDay = mktime(0,0,0,$month, 1, $year);
       $title = strftime('%B', $firstDay);
+
       $dayOfWeek = date('D', $firstDay);
       $daysInMonth = cal_days_in_month(0, $month, $year);
 
@@ -40,7 +41,7 @@ class MealOrderController extends Controller
         $timestamp = strtotime('+1 day', $timestamp);
       }
 
-      $blank = date('w', strtotime("{$year}-{$month}-01"));
+      // $blank = date('w', strtotime("{$year}-{$month}-01"));
 
       return view('meal-order.index', [
         'users' => $users,
@@ -54,7 +55,7 @@ class MealOrderController extends Controller
         'daysInMonth' => $daysInMonth,
         'timestamp' => $timestamp,
         'weekDays' => $weekDays,
-        'blank' => $blank
+        // 'blank' => $blank
       ]);
     }
 

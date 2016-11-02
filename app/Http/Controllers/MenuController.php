@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Http\Requests;
 
 use App\Menu;
@@ -17,7 +19,13 @@ class MenuController extends Controller
      */
     public function index()
     {
-      $menus =  Menu::all();
+      // $menus =  Menu::all();
+      // return view('menu.index',['menus' => $menus]);
+
+      $menus = DB::table('menus')
+                  ->leftJoin('menu_cat', 'menus.menu_cat_id', '=', 'menu_cat.menu_cat_id')
+                  ->select('menus.*', 'menu_cat.menu_cat_id', 'menu_cat.menuCatName')
+                  ->get();
       return view('menu.index',['menus' => $menus]);
     }
 

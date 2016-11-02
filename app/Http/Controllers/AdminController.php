@@ -22,6 +22,7 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
       $users = DB::table('users')->where('roles_id', '2')->get();
@@ -51,8 +52,12 @@ class AdminController extends Controller
        $this->validate($request,[
          'firstname' => 'required|min:2|max:255',
          'lastname' => 'required|min:2|max:255',
+         'roles_id' => '2',
          'email' => 'required|email|min:6|max:255|unique:users',
          'password' => 'required|min:6|confirmed',
+         'roomNum' => 'min:3|confirmed',
+         'checkIn' => 'date|confirmed',
+         'checkOut' => 'date|confirmed',
       ]);
        // create new data
        $user = new user;
@@ -61,7 +66,8 @@ class AdminController extends Controller
        $user->email = $request->email;
        $user->password = $request->password;
        $user->save();
-       return redirect()->route('admin.index')->with('alert-success','Guest Data Saved!');
+      //  return redirect()->route('admin.index')->with('alert-success','Guest Data Saved!');
+       return redirect()->route('admin.index')->with('status', 'Guest Data Saved!');
     }
 
     /**
@@ -72,7 +78,7 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

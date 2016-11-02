@@ -25,9 +25,16 @@
           <td>{{$user->firstname}}</td>
           <td>{{$user->lastname}}</td>
           <td>{{$user->email}}</td>
+          
           <td>{{$user->roomNum}}</td>
+        @if ($user->checkIn === null)
+          <td></td>
+          <td></td>
+        @else
           <td>{{ date('F d, Y', strtotime($user->checkIn)) }}</td>
           <td>{{ date('F d, Y', strtotime($user->checkOut)) }}</td>
+        @endif
+
           <td>
             <form class="" action="{{route('admin.destroy',$user->id)}}" method="post">
               <input type="hidden" name="_method" value="delete">
