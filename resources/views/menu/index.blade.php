@@ -23,7 +23,7 @@
           <td>{{$no++}}</td>
           <td>{{$menu->menuName}}</td>
           <td>{{$menu->menuDesc}}</td>
-          <td>{{$menu->menu_cat_id}}</td>
+          <td>{{$menu->menuCatName}}</td>
           <td>{{$menu->menuPrice}}</td>
           <td>{{$menu->menuDate}}</td>
           <td>

@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
@@ -32,10 +31,12 @@ class User extends Authenticatable
       $this->attributes['firstname'] = ucfirst($value);
     }
 
+
     public function setLastnameAttribute($value)
     {
       $this->attributes['lastname'] = ucfirst($value);
     }
+
 
     public function setPasswordAttribute($value)
     {
@@ -46,6 +47,7 @@ class User extends Authenticatable
     {
       return $value;
     }
+
 
 
 

@@ -19,6 +19,10 @@ Route::get('/', function () {
     }
 });
 
+Route::get('blade', function () {
+    return view('child');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
