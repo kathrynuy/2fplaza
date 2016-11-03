@@ -108,7 +108,7 @@
 
               @else
                 <ul class="admin_ul">
-                  <li class="admin_ul"><span class="glyphicon glyphicon-user icns" ></span><a href="#">Today's Menu</a></li>
+                  <li class="admin_ul"><span class="glyphicon glyphicon-user icns" ></span><a href="/guest">Today's Menu</a></li>
                   <li class="admin_ul"><span class="glyphicon glyphicon-list-alt icns"></span><a href="#">My Account</a></li>
                 </ul>
 

@@ -18,6 +18,6 @@ class Role
        	if(\Auth::user()->can($role . '-access')){
        		return $next($request);
        	}
-       	return redirect('/meal-order');;
+       	return redirect('/home');
      }
 }

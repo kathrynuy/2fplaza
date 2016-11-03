@@ -75,7 +75,7 @@ class MenuController extends Controller
      */
     public function show($id)
     {
-        //
+      return view('guest.menutoday');
     }
 
     /**

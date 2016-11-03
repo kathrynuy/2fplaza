@@ -19,9 +19,13 @@ class GuestController extends Controller
     public function index()
     {
 
-      // $guests = DB::table('users')->where('roles_id', '2')->get();
-      //
-      // return view('admin.guests', ['guests' => $guests]);
+      // $menus = DB::table('menus')->get();
+      $date =  Carbon::now();
+      $menus = DB::table('menus')->where('menuDate', '2016-10-24')->first();
+      return view('guest.index', [
+        'menus' => $menus,
+        'date' => $date,
+      ]);
     }
 
     /**

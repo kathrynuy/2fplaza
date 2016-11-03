@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
-          <h1>Dashboard</h1>
-
+    @if(Auth::user()->roles_id == '1')
+      <h1>Admin Dashboard</h1>
+    @else
+      <h1>Guest Dashboard</h1>
+    @endif
 @endsection
