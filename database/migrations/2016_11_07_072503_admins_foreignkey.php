@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MenuCatForeignKey extends Migration
+class AdminsForeignkey extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class MenuCatForeignKey extends Migration
      */
     public function up()
     {
-      Schema::table('menus', function (Blueprint $table) {
-      $table->foreign('menu_cat_id')->references('menu_cat_id')->on('menu_cat');
+      Schema::table('admins', function (Blueprint $table) {
+      $table->foreign('users_id')->references('id')->on('users')->where('roles_id', '1');
       });
     }
 

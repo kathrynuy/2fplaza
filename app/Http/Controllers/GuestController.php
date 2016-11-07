@@ -20,11 +20,10 @@ class GuestController extends Controller
     {
 
       // $menus = DB::table('menus')->get();
-      $date =  Carbon::now();
+
       $menus = DB::table('menus')->where('menuDate', '2016-10-24')->first();
       return view('guest.index', [
-        'menus' => $menus,
-        'date' => $date,
+        'menus' => $menus
       ]);
     }
 

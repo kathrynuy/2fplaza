@@ -72,13 +72,11 @@
               @for($i = 1; $i <= $daysInMonth; $i++)
                 @if($day == $i)
                   <td id= {{ $i }} class="order_td">
-                    <span class="glyphicon glyphicon-ok yes"></span>
-                    <span class="glyphicon glyphicon-remove no"></span>
+
                   </td>
                 @else
                   <td id= {{ $i }} class="order_td">
-                    <span class="glyphicon glyphicon-ok yes"></span>
-                    <span class="glyphicon glyphicon-remove no"></span>
+                    
                   </td>
                 @endif
               @endfor
