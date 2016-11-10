@@ -39,6 +39,7 @@ class MealOrderController extends Controller
       for ($i = 0; $i < 31; $i++){
         $weekDays[] = strftime('%a', $timestamp);
         $timestamp = strtotime('+1 day', $timestamp);
+
       }
 
       // $blank = date('w', strtotime("{$year}-{$month}-01"));

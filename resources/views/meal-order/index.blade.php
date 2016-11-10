@@ -6,8 +6,14 @@
     </div>
   </div>
 
-  <div class="row" id="calendar">
+  <div class="container">
+    <ul class="pagerbutton">
+  <li><a href="#">Previous</a></li>
+  <li><a href="#">Next</a></li>
+  </ul>
+  </div>
 
+  <div class="row" id="calendar">
   $month = date('m', $date);
   @for ($month; $month<=12; $month++) {
 
@@ -15,10 +21,12 @@
     {{ $month }}
   }
   @endfor
+
+
     <table class='table table-bordered' style="width: 100%;">
       <thead>
         <tr style="background: #d9edf7;">
-          <th colspan="36" class="text-center" id= {{ $title }}{{ $year }}> {{ $title }} {{ $year }} </th>
+          <th colspan="36" class="text-center" id= {{ $title }}{{ $year }}> {{ $title }} {{ $year }}</th>
         </tr>
 
         <tr>

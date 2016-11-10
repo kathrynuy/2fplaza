@@ -101,3 +101,43 @@ td#fname, td#lname, td#roomnum, td#no{
 td.tbl_th{
   white-space: nowrap;
 }
+
+.pagerbutton {
+padding-left: 0;
+    margin: 20px 0;
+    text-align: left;
+    list-style: none;
+    font-size: 13px;
+}
+.pagerbutton li {
+  display: inline;
+}
+.pagerbutton li > a,
+.pagerbutton li > span {
+  display: inline-block;
+  padding: 3px 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+.pagerbutton li > a:hover,
+.pagerbutton li > a:focus {
+  text-decoration: none;
+  background-color: #eee;
+}
+.pagerbutton .next > a,
+.pagerbutton .next > span {
+  float: right;
+}
+.pagerbutton .previous > a,
+.pagerbutton .previous > span {
+  float: left;
+}
+.pagerbutton .disabled > a,
+.pagerbutton .disabled > a:hover,
+.pagerbutton .disabled > a:focus,
+.pagerbutton .disabled > span {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+}
