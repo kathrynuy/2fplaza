@@ -7,7 +7,7 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <form class="form-horizontal" role="form" method="POST" action="{{route('admin.store')}}">
+      <form class="form-horizontal" role="form" method="POST" action="{{route('users.store')}}">
           {{ csrf_field() }}
           <div class="form-group{{ $errors->has('firstname') ? ' has-error' : '' }}">
               <label for="firstname" class="col-md-4 control-label">First Name</label>

@@ -15,9 +15,9 @@ class Role
      */
      public function handle($request, Closure $next, $role)
      {
-       	if(\Auth::user()->can($role . '-access')){
+       	if(Auth::user()->can($role . '-access')){
        		return $next($request);
        	}
-       	return redirect('/home');
+       	return redirect('/transaction/create');
      }
 }

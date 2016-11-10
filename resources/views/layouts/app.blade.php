@@ -71,7 +71,7 @@
 
                             <li class="dropdown">
                                 <a class="dmenu" id ="dLabel" data-target="#" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Hi!&nbsp;{{ Auth::user()->firstname}} <span class="caret"></span>
+                                    Hi!&nbsp;{{ Auth::user()->firstname}}<span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" aria-labelledby="dLabel">
@@ -101,14 +101,14 @@
             <div class="admin_menu">
               @if (Auth::user()->roles_id == '1')
                 <ul class="admin_ul">
-                  <li class="admin_ul"><span class="glyphicon glyphicon-user icns" ></span><a href="{{ url('/admin') }}">Guests</a></li>
+                  <li class="admin_ul"><span class="glyphicon glyphicon-user icns" ></span><a href="{{ url('/users') }}">Guests</a></li>
                   <li class="admin_ul"><span class="glyphicon glyphicon-list-alt icns"></span><a href="{{ url('/menu') }}">Menu</a></li>
-                  <li class="admin_ul"><span class="glyphicon glyphicon glyphicon-tasks icns"></span><a href="{{ url('/meal-order') }}">Meal Orders</a></li>
+                  <li class="admin_ul"><span class="glyphicon glyphicon glyphicon-tasks icns"></span><a href="{{ url('/transaction') }}">Guest Transactions</a></li>
                 </ul>
 
               @else
                 <ul class="admin_ul">
-                  <li class="admin_ul"><span class="glyphicon glyphicon-user icns" ></span><a href="/guest">Today's Menu</a></li>
+                  <li class="admin_ul"><span class="glyphicon glyphicon-user icns" ></span><a href="/meal-order/create">Meal Order</a></li>
                   <li class="admin_ul"><span class="glyphicon glyphicon-list-alt icns"></span><a href="#">My Account</a></li>
                 </ul>
 

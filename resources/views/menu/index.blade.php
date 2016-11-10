@@ -6,6 +6,12 @@
     </div>
   </div>
   <div class="row">
+    
+    {{-- Success message  --}}
+    @if(Session::has('alert-success'))
+      <div class="alert alert-info"> {{Session::get('alert-success')}} </div>
+    @endif
+
     <table class="table table-striped">
       <tr>
         <th>No.</th>
@@ -38,4 +44,5 @@
       @endforeach
     </table>
   </div>
+
   @stop

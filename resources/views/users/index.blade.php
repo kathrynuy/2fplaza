@@ -6,6 +6,12 @@
     </div>
   </div>
   <div class="row">
+
+    {{-- Success message  --}}
+    @if(Session::has('alert-success'))
+      <div class="alert alert-info"> {{Session::get('alert-success')}} </div>
+    @endif
+
     <table class="table table-striped">
       <tr>
         <th>No.</th>
@@ -17,15 +23,15 @@
         <th>Check Out</th>
         <th>Actions</th>
       </tr>
-      <a href="{{route('admin.create')}}" class="btn btn-primary pull-right">Add New Guest</a><br><br>
+      <a href="{{route('users.create')}}" class="btn btn-primary pull-right">Add New Guest</a><br><br>
       <?php $no=1; ?>
       @foreach($users as $user)
-        <tr>
+      <tr>
           <td>{{$no++}}</td>
           <td>{{$user->firstname}}</td>
           <td>{{$user->lastname}}</td>
           <td>{{$user->email}}</td>
-          
+
           <td>{{$user->roomNum}}</td>
         @if ($user->checkIn === null)
           <td></td>
@@ -36,10 +42,10 @@
         @endif
 
           <td>
-            <form class="" action="{{route('admin.destroy',$user->id)}}" method="post">
+            <form class="" action="{{route('users.destroy',$user->id)}}" method="post">
               <input type="hidden" name="_method" value="delete">
               <input type="hidden" name="_token" value="{{ csrf_token() }}">
-              <a href="{{route('admin.edit',$user->id)}}" class="btn btn-info">Update</a>
+              <a href="{{route('users.edit',$user->id)}}" class="btn btn-info">Update</a>
             </form>
           </td>
         </tr>

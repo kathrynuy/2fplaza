@@ -19,13 +19,13 @@ class MenuController extends Controller
      */
     public function index()
     {
-      // $menus =  Menu::all();
-      // return view('menu.index',['menus' => $menus]);
 
-      $menus = DB::table('menus')
-                  ->leftJoin('menu_cat', 'menus.menu_cat_id', '=', 'menu_cat.menu_cat_id')
-                  ->select('menus.*', 'menu_cat.menu_cat_id', 'menu_cat.menuCatName')
-                  ->get();
+      $menus = Menu::leftJoin('menu_cat', 'menus.menu_cat_id', '=', 'menu_cat.menu_cat_id')
+                ->select('menus.*', 'menu_cat.menu_cat_id', 'menu_cat.menuCatName')
+                ->get();
+
+      // $menus = Menu::all();
+
       return view('menu.index',['menus' => $menus]);
     }
 
@@ -63,7 +63,7 @@ class MenuController extends Controller
      $menu->menuDate = $request->menuDate;
      $menu->menu_cat_id = $request->menu_cat_id;
      $menu->save();
-     return redirect()->route('menu.index')->with('alert-success','Manu Data Saved!');
+     return redirect()->route('menu.index')->with('alert-success','Menu Data Saved!');
 
     }
 

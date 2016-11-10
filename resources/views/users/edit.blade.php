@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="row">
-    <form class="" action="{{route('admin.update',$user->id)}}" method="post">
+    <form class="" action="{{route('users.update',$user->id)}}" method="post">
       <input name="_method" type="hidden" value="PATCH">
       {{csrf_field()}}
       <div class="form-group{{ ($errors->has('firstname')) ? $errors->first('id') : '' }}">
