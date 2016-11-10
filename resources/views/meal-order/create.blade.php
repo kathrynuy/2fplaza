@@ -31,7 +31,7 @@
           <div class="form-group{{ ($errors->has('menus_id')) ? $errors->first('menus_id') : '' }}">
             <input type="text" name="menus_id" value={{ $menu->id }} hidden>
               {!! $errors->first('menus_id','<p class="help-block">:message</p>') !!}
-              
+
           <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
                   <button type="submit" class="btn btn-primary">
