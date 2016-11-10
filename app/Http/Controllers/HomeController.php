@@ -27,4 +27,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function show($id)
+    {
+      $request->session()->put('key', 'value');
+      return $request->session()->get('key');
+    }
 }

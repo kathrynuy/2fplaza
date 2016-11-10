@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 use App\User;
+use App\Users;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -21,9 +22,12 @@ class UserController extends Controller
      */
     public function index()
     {
-      $users = DB::table('users')->where('roles_id', '2')->get();
+      $users = Users::where('roles_id', '2')
+              ->orderBy('lastname', 'asc')
+              ->get();
 
       return view('users.index', ['users' => $users]);
+
     }
 
     /**
@@ -73,7 +77,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
+      $request->session()->put('key', 'value');
+      return $request->session()->get('key');
+
     }
 
     /**
@@ -84,7 +91,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $user = User::findOrFail($id);
+      $user = Users::findOrFail($id);
      // return to the edit views
      return view('users.edit',compact('user'));
     }
@@ -107,7 +114,7 @@ class UserController extends Controller
        'checkOut' => 'required',
    ]);
 
-     $user = User::findOrFail($id);
+     $user = Users::findOrFail($id);
      $user->firstname = $request->firstname;
      $user->lastname = $request->lastname;
      $user->roomNum = $request->roomNum;
@@ -115,7 +122,7 @@ class UserController extends Controller
      $user->checkOut = $request->checkOut;
      $user->save();
 
-     return redirect()->route('users.index')->with('alert-success','User Data Saved!');
+     return redirect()->route('users.index')->with('alert-success','Guest Data Saved!');
     }
 
     /**
@@ -127,8 +134,8 @@ class UserController extends Controller
     public function destroy($id)
     {
       // delete data
-      $user = User::findOrFail($id);
+      $user = Users::findOrFail($id);
       $user->delete();
-      return redirect()->route('users.index')->with('alert-success','User Data Saved!');
+      return redirect()->route('users.index')->with('alert-success','Guest Data Saved!');
     }
 }

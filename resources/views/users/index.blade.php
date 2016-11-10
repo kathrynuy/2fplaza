@@ -6,6 +6,12 @@
     </div>
   </div>
   <div class="row">
+
+    {{-- Success message  --}}
+    @if(Session::has('alert-success'))
+      <div class="alert alert-info"> {{Session::get('alert-success')}} </div>
+    @endif
+
     <table class="table table-striped">
       <tr>
         <th>No.</th>
@@ -20,7 +26,7 @@
       <a href="{{route('users.create')}}" class="btn btn-primary pull-right">Add New Guest</a><br><br>
       <?php $no=1; ?>
       @foreach($users as $user)
-        <tr>
+      <tr>
           <td>{{$no++}}</td>
           <td>{{$user->firstname}}</td>
           <td>{{$user->lastname}}</td>

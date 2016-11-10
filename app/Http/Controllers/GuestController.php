@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests;
 
 use App\Guest;
+use App\Menu;
+
+use Carbon\Carbon;
 
 class GuestController extends Controller
 {
@@ -18,12 +21,19 @@ class GuestController extends Controller
      */
     public function index()
     {
+      $date = Carbon::now()->format('y-m-d');
+      $menus = Menu::where('menuDate', $date)
+                ->leftJoin('menu_cat', 'menus.menu_cat_id', '=', 'menu_cat.menu_cat_id')
+                ->select('menus.*', 'menu_cat.menu_cat_id', 'menu_cat.menuCatName')
+                ->get();
 
-      // $menus = DB::table('menus')->get();
+      $dt = Carbon::now();
+      $dateString = $dt->toFormattedDateString();
 
-      $menus = DB::table('menus')->where('menuDate', '2016-10-24')->first();
       return view('guest.index', [
-        'menus' => $menus
+        'menus' => $menus,
+        'date' => $date,
+        'dateString' => $dateString
       ]);
     }
 
@@ -34,7 +44,8 @@ class GuestController extends Controller
      */
     public function create()
     {
-        // return view('admin.addguest');
+      
+      // return view('guest.create');
     }
 
     /**
@@ -43,10 +54,24 @@ class GuestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+     public function store(Request $request)
+      {
+        // validation
+         $this->validate($request,[
+           'guests_id' => 'required',
+           'menus_id' => 'required',
+           'transDescription' => 'required|min:6',
+           'transDate' => 'required|date',
+        ]);
+         // create new data
+         $transaction = new transaction;
+         $transaction->guests_id = $request->guests_id;
+         $transaction->menus_id = $request->menus_id;
+         $transaction->transDescription = $request->transDescription;
+         $transaction->transDate = $request->transDate;
+         $transaction->save();
+         return redirect()->route('guests.index')->with('alert-success','Order Data Saved!');
+      }
 
     /**
      * Display the specified resource.

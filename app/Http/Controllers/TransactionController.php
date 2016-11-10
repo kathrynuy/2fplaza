@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
 
 use Illuminate\Support\Facades\DB;
 
-use App\Http\Requests;
+use App\User;
+use App\Transaction;
 
-use App\Menu;
-
-use Carbon\Carbon;
-
-class MealOrderController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +19,47 @@ class MealOrderController extends Controller
      */
     public function index()
     {
-        return view('meal-order.index');
+
+      $users = DB::table('users')->where('roles_id', '2')->get();
+
+      date_default_timezone_set("America/Montreal");
+      $date = strtotime(date("Y-m-d"));
+
+      $day = date('d', $date);
+      $month = date('m', $date);
+      $year = date('Y', $date);
+      $firstDay = mktime(0,0,0,$month, 1, $year);
+      $title = strftime('%B', $firstDay);
+
+      $dayOfWeek = date('D', $firstDay);
+      $daysInMonth = cal_days_in_month(0, $month, $year);
+
+      $timestamp = strtotime('next Sunday');
+      $weekDays = [];
+
+      for ($i = 0; $i < 31; $i++){
+        $weekDays[] = strftime('%a', $timestamp);
+        $timestamp = strtotime('+1 day', $timestamp);
+      }
+
+      // $blank = date('w', strtotime("{$year}-{$month}-01"));
+
+      return view('transaction.index', [
+        'users' => $users,
+        'date' => $date,
+        'day' => $day,
+        'month' => $month,
+        'year' => $year,
+        'firstDay' => $firstDay,
+        'title' => $title,
+        'dayOfWeek' => $dayOfWeek,
+        'daysInMonth' => $daysInMonth,
+        'timestamp' => $timestamp,
+        'weekDays' => $weekDays,
+        // 'blank' => $blank
+      ]);
+
+
     }
 
     /**
@@ -31,22 +69,7 @@ class MealOrderController extends Controller
      */
     public function create()
     {
-      $date = Carbon::now()->format('y-m-d');
-      $menus = Menu::where('menuDate', $date)
-                ->leftJoin('menu_cat', 'menus.menu_cat_id', '=', 'menu_cat.menu_cat_id')
-                ->select('menus.*', 'menu_cat.menu_cat_id', 'menu_cat.menuCatName')
-                ->get();
-
-      $dt = Carbon::now();
-      $dateString = $dt->toFormattedDateString();
-
-      return view('meal-order.create', [
-        'menus' => $menus,
-        'date' => $date,
-        'dateString' => $dateString
-      ]);
-
-      // return view('transaction.create');
+        //
     }
 
     /**
@@ -57,21 +80,7 @@ class MealOrderController extends Controller
      */
     public function store(Request $request)
     {
-      // validation
-       $this->validate($request,[
-         'guests_id' => 'required',
-         'menus_id' => 'required',
-         'transDescription' => 'required|min:6',
-         'transDate' => 'required|date',
-      ]);
-       // create new data
-       $transaction = new transaction;
-       $transaction->guests_id = $request->guests_id;
-       $transaction->menus_id = $request->menus_id;
-       $transaction->transDescription = $request->transDescription;
-       $transaction->transDate = $request->transDate;
-       $transaction->save();
-       return redirect()->route('meal-order.index')->with('alert-success','Order Data Saved!');
+        //
     }
 
     /**

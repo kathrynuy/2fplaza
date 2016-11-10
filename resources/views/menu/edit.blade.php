@@ -22,7 +22,7 @@
         {!! $errors->first('menuPrice','<p class="help-block">:message</p>') !!}
       </div>
       <div class="form-group{{ ($errors->has('menuDate')) ? $errors->first('menuName') : '' }}">
-        <input type="text" name="menuDate" class="form-control" placeholder="Menu Date Availability" value="{{$menu->menuDate}}">
+        <input type="date" name="menuDate" class="form-control" placeholder="Menu Date Availability" value="{{$menu->menuDate}}">
         {!! $errors->first('menuDate','<p class="help-block">:message</p>') !!}
       </div>
       <div class="form-group">

@@ -32,7 +32,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'authenticated'], function(){
   Route::resource('users', 'UserController');
   Route::resource('guest', 'GuestController');
-  // Route::get('admin', 'AdminController@index');
   Route::resource('menu', 'MenuController');
+  Route::resource('transaction', 'TransactionController');
   Route::resource('meal-order', 'MealOrderController');
 });

@@ -7,15 +7,21 @@
     </div>
 
     <div class="row">
-    <div class="col-md-12">
-      @foreach($menus as $menu)
-        <form role="form" method="POST" action="">
-          <label>{{ $dateString }}</label><br/>
+      <div class="col-md-12">
+        @foreach($menus as $menu)
+        <form class="form-horizontal" role="form" method="POST" action="{{route('guest.store')}}">
+          {{ csrf_field() }}
+          <label for="transDate">{{ $dateString }}</label><br/>
+            <input id ="transDate" type="text" name="transDate" value={{ Auth::user()->id }} hidden>
+
           <label>{{ $menu->menuName }}</label><br/>
-          <label>{{ $menu->menuPrice }}</label>
+          <label>{{ $menu->menuPrice }}</label><br/>
+
+          <label for="menuCatName">{{ $menu->menuCatName }}</label>
+            <input id="menuCatName" type="text" name="transDescription" value={{ $menu->menuCatName }} hidden>
+
           <input type="text" name="guests_id" value={{ Auth::user()->id }} hidden><br/>
           <input type="text" name="menus_id" value={{ $menu->id }} hidden>
-          <label>{{ $menu->menuCatName }}</label>
 
           <div class="form-group">
               <div class="col-md-6 col-md-offset-4">
@@ -25,9 +31,8 @@
               </div>
           </div>
         </form>
-      @endforeach
+        @endforeach
+      </div>
     </div>
-    </div>
-
 
 @stop

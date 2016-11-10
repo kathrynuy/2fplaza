@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Users extends Model
 {
+  protected $table = 'users';
+
   public function roles()
   {
-      return $this->hasOne('App\Roles');
+    return $this->hasOne('App\Roles');
   }
 }
